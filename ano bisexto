@@ -1,0 +1,65 @@
+package anobisexto;
+
+import java.util.Scanner;
+
+public class Anobissexto {
+
+public static void main(String[] args) {
+
+int ano, mes, dias=31;
+
+System.out.println("Digite o mês (1-12)");
+
+Scanner sc1 = new Scanner(System.in);
+
+mes = sc1.nextInt();
+
+System.out.println("\n" + "Digite um ano para saber se ele é bissexto (Formato de 4 dígitos. Ex. 2020)");
+
+Scanner sc2 = new Scanner(System.in);
+
+ano = sc2.nextInt();
+
+if(mes>12 || mes<1) {
+
+System.out.println("Mês inválido");
+
+return;
+
+}
+
+switch (mes) {
+
+case 2:
+
+if ((ano % 400 == 0) || ((ano % 4 == 0) && (ano % 100 != 0)) || ((ano % 100 == 0) && (ano % 400 == 0))) {
+
+dias -=1;
+
+}
+
+else dias -=2;
+
+case 4: case 6: case 9: case 11:
+
+dias--;
+
+}
+
+System.out.printf("O mês %d possui %d dias e ", mes, dias);
+
+if ((ano % 400 == 0) || ((ano % 4 == 0) && (ano % 100 != 0)) || ((ano % 100 == 0) && (ano % 400 == 0))) {
+
+System.out.println(ano + " é um ano Bissexto!");
+
+}
+
+else {
+
+System.out.println(ano + " não é um ano Bissexto!");
+
+}
+
+}
+
+}
